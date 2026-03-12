@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildFlow - منصة بناء المواقع بالذكاء الاصطناعي</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">B</div>
+                <span>BuildFlow</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">المميزات</a>
+                <a href="#pricing" class="nav-link">الأسعار</a>
+                <a href="#templates" class="nav-link">القوالب</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="auth('login')">تسجيل الدخول</button>
+                <button class="btn btn-primary" onclick="auth('signup')">ابدأ مجاناً</button>
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>جديد: الآن يمكنك بناء متجر إلكتروني كامل!</span>
+                </div>
+                
+                <h1>ابنِ موقعك كأنك تستخدم <span class="gradient-text">PowerPoint</span></h1>
+                
+                <p class="hero-description">
+                    صمم أي موقع أو متجر إلكتروني في دقائق. سحب وإفلات بسيط، 
+                    ذكاء اصطناعي يساعدك، ونشر بنقرة واحدة.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openEditor()">جرب الآن مجاناً</button>
+                    <button class="btn btn-outline" onclick="scrollToDemo()">شاهد كيف يعمل</button>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50000">0</div>
+                        <div class="stat-label">موقع تم بناؤه</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98">0%</div>
+                        <div class="stat-label">عملاء سعداء</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5 دقائق</div>
+                        <div class="stat-label">متوسط وقت البناء</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editor Preview -->
+    <div class="container">
+        <div class="editor-preview" id="editorPreview">
+            <div class="editor-header">
+                <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="editor-tools">
+                    <button class="tool-btn">T</button>
+                    <button class="tool-btn">🖼️</button>
+                    <button class="tool-btn">🔘</button>
+                    <button class="tool-btn ai-btn">🤖</button>
+                </div>
+                <button class="btn btn-primary btn-sm">نشر</button>
+            </div>
+            <div class="editor-canvas" id="canvas">
+                <div class="demo-element" id="demo-element">
+                    <h3>متجر العطور الفاخرة</h3>
+                    <p>أفضل العطور العالمية</p>
+                    <button class="btn-demo">تسوق الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>كل ما تحتاجه لبناء موقع احترافي</h2>
+                <p>أدوات قوية وسهلة الاستخدام تجعل بناء المواقع ممتعاً</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>ذكاء اصطناعي متقدم</h3>
+                    <p>صف فكرتك بالعربية والذكاء الاصطناعي يبني الموقع كاملاً</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>تصميم متجاوب</h3>
+                    <p>موقعك يعمل بشكل مثالي على جميع الأجهزة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>متجر إلكتروني</h3>
+                    <p>أضف منتجات، سلة مشتريات، ودفع إلكتروني بسهولة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>اختر الخطة المناسبة لك</h2>
+                <p>ابدأ مجاناً وقم بالترقية عندما ينمو عملك</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>مجاني</h3>
+                    <div class="price">$0<span>/شهرياً</span></div>
+                    <ul class="pricing-features">
+                        <li>موقع واحد</li>
+                        <li>دومين فرعي مجاني</li>
+                        <li>حتى 10 منتجات</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="subscribe('free')">ابدأ مجاناً</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">الأكثر شعبية</div>
+                    <h3>محترف</h3>
+                    <div class="price">$19<span>/شهرياً</span></div>
+                    <ul class="pricing-features">
+                        <li>5 مواقع</li>
+                        <li>دومين مخصص</li>
+                        <li>منتجات غير محدودة</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="subscribe('pro')">اشترك الآن</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>أعمال</h3>
+                    <div class="price">$49<span>/شهرياً</span></div>
+                    <ul class="pricing-features">
+                        <li>مواقع غير محدودة</li>
+                        <li>API متقدم</li>
+                        <li>مدير حساب مخصص</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="subscribe('business')">تواصل معنا</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>BuildFlow</h4>
+                    <ul>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">الوظائف</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>المنتج</h4>
+                    <ul>
+                        <li><a href="#">المميزات</a></li>
+                        <li><a href="#">الأسعار</a></li>
+                        <li><a href="#">القوالب</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="#">المساعدة</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدعم الفني</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 BuildFlow. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" onclick="toggleChat()">💬</button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>الدعم الفني</span>
+                <button onclick="toggleChat()">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="avatar">B</div>
+                    <div class="message-content">مرحباً! كيف يمكنني مساعدتك؟</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="اكتب رسالتك..." id="chatInput" onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Editor Modal -->
+    <div class="editor-modal" id="editorModal">
+        <div class="editor-modal-header">
+            <div class="editor-title">
+                <button onclick="closeEditor()">✕</button>
+                <span>محرر BuildFlow</span>
+            </div>
+            <div class="editor-actions">
+                <button class="btn btn-outline" onclick="saveProject()">حفظ</button>
+                <button class="btn btn-primary" onclick="publishSite()">نشر</button>
+            </div>
+        </div>
+        
+        <div class="editor-modal-body">
+            <div class="editor-sidebar">
+                <h3>العناصر</h3>
+                <button class="editor-element" onclick="addElement('text')">📝 نص</button>
+                <button class="editor-element" onclick="addElement('button')">🔘 زر</button>
+                <button class="editor-element" onclick="addElement('image')">🖼️ صورة</button>
+                <button class="editor-element" onclick="addElement('section')">📦 قسم</button>
+                
+                <h3>الذكاء الاصطناعي</h3>
+                <textarea id="aiPrompt" placeholder="صف ما تريد إنشاءه..."></textarea>
+                <button class="editor-element ai-generate" onclick="generateWithAI()">🤖 إنشاء بالذكاء الاصطناعي</button>
+            </div>
+            
+            <div class="editor-main" id="editorMain">
+                <div class="editor-page" id="editorPage">
+                    <div class="empty-state" id="emptyState">
+                        <p>ابدأ بإضافة عناصر من الشريط الجانبي</p>
+                        <p>أو استخدم الذكاء الاصطناعي لوصف ما تريد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/ai.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
