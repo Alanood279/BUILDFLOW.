@@ -101,7 +101,7 @@
         
         body.dark {
             background: #0a0a0a;
-            color: #fff;
+            color: #e5e5e5;
         }
         
         html { scroll-behavior: smooth; }
@@ -117,7 +117,7 @@
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .dark .glass {
+        body.dark .glass {
             background: rgba(20, 20, 20, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -137,7 +137,7 @@
             background-size: 20px 20px;
         }
         
-        .dark .canvas-container {
+        body.dark .canvas-container {
             background: #1a1a1a;
             background-image: 
                 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
@@ -227,7 +227,7 @@
             border-radius: 4px;
         }
         
-        .dark ::-webkit-scrollbar-thumb {
+        body.dark ::-webkit-scrollbar-thumb {
             background: #334155;
         }
         
@@ -348,6 +348,33 @@
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
+
+        /* تحسينات الوضع الليلي للخطوط */
+        body.dark p, body.dark li, body.dark span, body.dark div:not([class*="text-"]) {
+            color: #e5e5e5;
+        }
+        
+        body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark .font-bold, body.dark [class*="font-bold"] {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        body.dark .text-gray-600, body.dark .text-gray-500, body.dark .text-gray-400 {
+            color: #9ca3af !important;
+        }
+        
+        /* تحسين النصوص القابلة للتحرير في الوضع الليلي */
+        body.dark [contenteditable="true"] {
+            color: #ffffff;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        body.dark [contenteditable="true"]:focus {
+            outline: 2px solid #4f46e5;
+            background-color: rgba(79, 70, 229, 0.1);
+        }
     </style>
 </head>
 <body class="antialiased transition-colors duration-300">
@@ -421,14 +448,14 @@
                     <span class="text-sm font-medium">جديد: الآن يمكنك بناء متجر إلكتروني كامل!</span>
                 </div>
                 
-                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight">
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight dark:font-extrabold">
                     ابنِ موقعك كأنك تستخدم
                     <span class="gradient-text block mt-2">PowerPoint</span>
                 </h1>
                 
-                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed dark:font-medium">
                     صمم أي موقع أو متجر إلكتروني في دقائق. سحب وإفلات بسيط، ذكاء اصطناعي يساعدك، ونشر بنقرة واحدة.
-                    <span class="block mt-2 font-semibold text-brand-600">مجاناً للمبتدئين - بدون بطاقة ائتمان</span>
+                    <span class="block mt-2 font-semibold text-brand-600 dark:text-brand-400">مجاناً للمبتدئين - بدون بطاقة ائتمان</span>
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -515,7 +542,7 @@
                     <div class="canvas-container h-96 relative overflow-hidden" id="canvas">
                         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 border-2 border-brand-500 selected cursor-move" id="hero-box">
                             <h3 class="text-xl font-bold mb-2 text-center dark:text-white">متجر العطور الفاخرة</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mb-4">أفضل العطور العالمية بأسعار مميزة</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 text-center mb-4">أفضل العطور العالمية بأسعار مميزة</p>
                             <button class="w-full bg-brand-600 text-white py-2 rounded-lg text-sm font-medium">تسوق الآن</button>
                             <div class="resize-handle -top-1 -left-1 cursor-nw-resize"></div>
                             <div class="resize-handle -top-1 -right-1 cursor-ne-resize"></div>
@@ -530,8 +557,8 @@
         <!-- How it Works Section -->
         <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">كيف يعمل BuildFlow؟</h2>
-                <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">ثلاث خطوات بسيطة تفصلك عن موقعك الاحترافي</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 dark:font-extrabold">كيف يعمل BuildFlow؟</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto dark:font-medium">ثلاث خطوات بسيطة تفصلك عن موقعك الاحترافي</p>
                 
                 <div class="grid md:grid-cols-3 gap-8 relative">
                     <!-- Connecting Line -->
@@ -540,19 +567,19 @@
                     <div class="step-card text-center relative z-10">
                         <div class="step-number w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg">1</div>
                         <h3 class="text-xl font-bold mb-3">صف فكرتك</h3>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">اكتب وصفاً بسيطاً للموقع الذي تريد بناءه باللغة العربية أو الإنجليزية. لا حاجة لمعرفة تقنية!</p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">اكتب وصفاً بسيطاً للموقع الذي تريد بناءه باللغة العربية أو الإنجليزية. لا حاجة لمعرفة تقنية!</p>
                     </div>
                     
                     <div class="step-card text-center relative z-10">
                         <div class="step-number w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg">2</div>
                         <h3 class="text-xl font-bold mb-3">شاهد الذكاء الاصطناعي يعمل</h3>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">يقوم الذكاء الاصطناعي ببناء موقعك تلقائياً مع التصميم والمحتوى والصور المناسبة</p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">يقوم الذكاء الاصطناعي ببناء موقعك تلقائياً مع التصميم والمحتوى والصور المناسبة</p>
                     </div>
                     
                     <div class="step-card text-center relative z-10">
                         <div class="step-number w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg">3</div>
                         <h3 class="text-xl font-bold mb-3">انشر في دقائق</h3>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">انقر نشر واحصل على رابط مباشر لموقعك. شاركه مع العالم فوراً!</p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">انقر نشر واحصل على رابط مباشر لموقعك. شاركه مع العالم فوراً!</p>
                     </div>
                 </div>
                 
@@ -568,8 +595,8 @@
         <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">كل ما تحتاجه لبناء موقع احترافي</h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">أدوات قوية وسهلة الاستخدام تجعل بناء المواقع ممتعاً</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 dark:font-extrabold">كل ما تحتاجه لبناء موقع احترافي</h2>
+                    <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto dark:font-medium">أدوات قوية وسهلة الاستخدام تجعل بناء المواقع ممتعاً</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -580,7 +607,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">ذكاء اصطناعي متقدم</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">وصف فكرتك بالعربية والذكاء الاصطناعي يبني الموقع كاملاً مع التصميم والمحتوى</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">وصف فكرتك بالعربية والذكاء الاصطناعي يبني الموقع كاملاً مع التصميم والمحتوى</p>
                     </article>
                     
                     <article class="p-6 rounded-2xl glass hover:shadow-xl transition-all duration-300 group">
@@ -590,7 +617,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">تصميم متجاوب تلقائياً</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">موقعك يعمل بشكل مثالي على الجوال، التابلت، وسطح المكتب بدون مجهود إضافي</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">موقعك يعمل بشكل مثالي على الجوال، التابلت، وسطح المكتب بدون مجهود إضافي</p>
                     </article>
                     
                     <article class="p-6 rounded-2xl glass hover:shadow-xl transition-all duration-300 group">
@@ -600,7 +627,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">متجر إلكتروني متكامل</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">أضف منتجات، سلة مشتريات، دفع إلكتروني، وإدارة طلبات بسهولة</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">أضف منتجات، سلة مشتريات، دفع إلكتروني، وإدارة طلبات بسهولة</p>
                     </article>
                     
                     <article class="p-6 rounded-2xl glass hover:shadow-xl transition-all duration-300 group">
@@ -610,7 +637,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">نشر بنقرة واحدة</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">استضافة مجانية، دومين فرعي مجاني، ونشر فوري لموقعك على الإنترنت</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">استضافة مجانية، دومين فرعي مجاني، ونشر فوري لموقعك على الإنترنت</p>
                     </article>
                     
                     <article class="p-6 rounded-2xl glass hover:shadow-xl transition-all duration-300 group">
@@ -620,7 +647,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">قوالب جاهزة احترافية</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">مئات القوالب المصممة للمطاعم، المتاجر، المقاهي، والمزيد</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">مئات القوالب المصممة للمطاعم، المتاجر، المقاهي، والمزيد</p>
                     </article>
                     
                     <article class="p-6 rounded-2xl glass hover:shadow-xl transition-all duration-300 group">
@@ -630,7 +657,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">ربح من موقعك</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نأخذ نسبة 2% فقط من كل عملية بيع. لا رسوم شهرية مخفية ولا عمولات إضافية</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">نأخذ نسبة 2% فقط من كل عملية بيع. لا رسوم شهرية مخفية ولا عمولات إضافية</p>
                     </article>
                 </div>
             </div>
@@ -640,8 +667,8 @@
         <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">اختر الخطة المناسبة لك</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-8">ابدأ مجاناً وقم بالترقية عندما ينمو عملك</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 dark:font-extrabold">اختر الخطة المناسبة لك</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">ابدأ مجاناً وقم بالترقية عندما ينمو عملك</p>
                     
                     <div class="flex items-center justify-center gap-4">
                         <span class="text-sm font-medium" id="monthly-label">شهري</span>
@@ -795,7 +822,7 @@
                         <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-purple-600 flex items-center justify-center text-white font-bold">B</div>
                         <span class="font-bold text-xl">BuildFlow</span>
                     </a>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 max-w-xs">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 max-w-xs">
                         أول منصة عربية لبناء المواقع والمتاجر الإلكترونية بالذكاء الاصطناعي. سهل كـ PowerPoint، قوي كـ Shopify.
                     </p>
                     <div class="flex gap-4">
@@ -813,7 +840,7 @@
                 
                 <nav>
                     <h4 class="font-bold mb-4">المنتج</h4>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                         <li><a href="#features" class="hover:text-brand-600 transition-colors">المميزات</a></li>
                         <li><a href="#pricing" class="hover:text-brand-600 transition-colors">الأسعار</a></li>
                         <li><a href="#templates" class="hover:text-brand-600 transition-colors">القوالب</a></li>
@@ -823,7 +850,7 @@
                 
                 <nav>
                     <h4 class="font-bold mb-4">الشركة</h4>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                         <li><a href="#about" class="hover:text-brand-600 transition-colors">من نحن</a></li>
                         <li><a href="#blog" class="hover:text-brand-600 transition-colors">المدونة</a></li>
                         <li><a href="#careers" class="hover:text-brand-600 transition-colors">الوظائف</a></li>
@@ -833,7 +860,7 @@
                 
                 <nav>
                     <h4 class="font-bold mb-4">قانوني</h4>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                         <li><a href="#privacy" class="hover:text-brand-600 transition-colors">سياسة الخصوصية</a></li>
                         <li><a href="#terms" class="hover:text-brand-600 transition-colors">شروط الاستخدام</a></li>
                         <li><a href="#security" class="hover:text-brand-600 transition-colors">الأمان</a></li>
@@ -875,7 +902,7 @@
             </div>
             <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
                 <form onsubmit="sendChatMessage(event)" class="flex gap-2">
-                    <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 dark:text-white">
                     <button type="submit" class="bg-brand-600 text-white px-4 py-2 rounded-lg hover:bg-brand-700 text-sm font-medium">إرسال</button>
                 </form>
             </div>
@@ -994,15 +1021,15 @@
                 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 
                 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                    document.documentElement.classList.add('dark');
+                    document.body.classList.add('dark');
                 }
             },
             
             toggle() {
-                document.documentElement.classList.toggle('dark');
+                document.body.classList.toggle('dark');
                 if (window.hasLocalStorage) {
                     localStorage.setItem('theme', 
-                        document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+                        document.body.classList.contains('dark') ? 'dark' : 'light'
                     );
                 }
             }
@@ -1229,13 +1256,13 @@
             createTextElement(id) {
                 const div = document.createElement('div');
                 div.id = id;
-                div.className = 'p-4 mb-4 cursor-move hover:ring-2 hover:ring-brand-500 rounded group relative slide-in';
+                div.className = 'p-4 mb-4 cursor-move hover:ring-2 hover:ring-brand-500 rounded group relative slide-in dark:text-white';
                 div.innerHTML = `
                     <div class="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100">
                         <button onclick="EditorManager.deleteElement('${id}')" class="w-6 h-6 bg-red-500 text-white rounded-full text-xs hover:bg-red-600">×</button>
                     </div>
                     <h2 class="text-2xl font-bold dark:text-white" contenteditable="true">عنوان قابل للتعديل</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2" contenteditable="true">انقر هنا لتحرير النص...</p>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2" contenteditable="true">انقر هنا لتحرير النص...</p>
                 `;
                 return div;
             },
@@ -1377,7 +1404,7 @@
                     section.className = 'mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg cursor-move slide-in';
                     section.innerHTML = `
                         <h3 class="text-xl font-bold mb-4 dark:text-white">${prompt}</h3>
-                        <p class="text-gray-600 dark:text-gray-400">تم إنشاء هذا القسم بواسطة الذكاء الاصطناعي بناءً على طلبك.</p>
+                        <p class="text-gray-600 dark:text-gray-300">تم إنشاء هذا القسم بواسطة الذكاء الاصطناعي بناءً على طلبك.</p>
                     `;
                     
                     this.canvas.appendChild(section);
@@ -1472,7 +1499,7 @@
         function toggleTheme() {
             ThemeManager.toggle();
             Analytics.trackEvent('UI', 'Toggle Theme', 
-                document.documentElement.classList.contains('dark') ? 'Dark' : 'Light'
+                document.body.classList.contains('dark') ? 'Dark' : 'Light'
             );
         }
 
