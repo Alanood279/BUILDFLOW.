@@ -1672,6 +1672,26 @@
             }
         });
     </script>
+  <script>
+async function sendToAI() {
+  const input = document.getElementById("input").value;
+
+  const res = await fetch("https://api-inference.huggingface.co/models/gpt2", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      inputs: input
+    })
+  });
+
+  const data = await res.json();
+
+  document.getElementById("result").innerText =
+    data[0]?.generated_text || "حاولي مرة ثانية 😅";
+}
+</script>
     <input id="input" placeholder="اكتب هنا">
 <button onclick="sendToAI()">ارسال </button>
 <div id="result"></div>
