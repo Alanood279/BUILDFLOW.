@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مساحة العمل الإبداعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF7ED;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FB923C;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F97316;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-orange {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(251, 146, 60, 0); }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-orange {
+            animation: pulse-orange 2s infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #F97316 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Color Classes based on 60-30-10 Rule */
+        .bg-primary-orange { background-color: #FFF7ED; } /* 60% - Light Orange Background */
+        .bg-primary-orange-dark { background-color: #FFEDD5; }
+        .text-primary-orange { color: #EA580C; }
+        .bg-secondary-cyan { background-color: #06B6D4; } /* 30% - Cyan */
+        .text-secondary-cyan { color: #0891B2; }
+        .bg-accent-blue { background-color: #2563EB; } /* 10% - Blue */
+        .text-accent-blue { color: #1D4ED8; }
+
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Sidebar Item Active State */
+        .sidebar-item.active {
+            background: linear-gradient(90deg, rgba(251, 146, 60, 0.2) 0%, transparent 100%);
+            border-right: 3px solid #F97316;
+            color: #EA580C;
+        }
+
+        /* Canvas Grid Pattern */
+        .canvas-grid {
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-primary-orange text-gray-800 overflow-hidden">
+
+    <!-- Main Container -->
+    <div class="flex h-screen w-full">
+        
+        <!-- Right Sidebar (Tools) - 60% Orange Theme -->
+        <aside class="w-20 bg-gradient-to-b from-orange-50 to-orange-100 border-l border-orange-200 flex flex-col items-center py-6 gap-4 shadow-xl z-20">
+            
+            <!-- Logo -->
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-xl shadow-lg animate-float mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+            </div>
+
+            <!-- Tool Icons -->
+            <button class="sidebar-item active w-14 h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-orange-600 transition-all hover:bg-orange-200/50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span class="text-[10px] font-medium">تصميم</span>
+            </button>
+
+            <button class="sidebar-item w-14 h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-orange-600 hover:bg-orange-200/30 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span class="text-[10px] font-medium">نص</span>
+            </button>
+
+            <button class="sidebar-item w-14 h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-orange-600 hover:bg-orange-200/30 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span class="text-[10px] font-medium">صور</span>
+            </button>
+
+            <button class="sidebar-item w-14 h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-orange-600 hover:bg-orange-200/30 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                <span class="text-[10px] font-medium">عناصر</span>
+            </button>
+
+            <div class="flex-1"></div>
+
+            <!-- Settings -->
+            <button class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-orange-600 hover:shadow-lg transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col relative">
+            
+            <!-- Top Navigation - Glass Effect -->
+            <header class="h-16 glass border-b border-orange-200 flex items-center justify-between px-6 z-10">
+                <div class="flex items-center gap-4">
+                    <button class="px-4 py-2 rounded-lg bg-gradient-to-r from-orange-400 to-orange-500 text-white font-medium text-sm hover:shadow-lg hover:from-orange-500 hover:to-orange-600 transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        تصميم جديد
+                    </button>
+                    <div class="h-8 w-px bg-orange-300"></div>
+                    <nav class="flex gap-2">
+                        <button class="px-3 py-1.5 rounded-md text-sm font-medium text-orange-700 bg-orange-100">الكل</button>
+                        <button class="px-3 py-1.5 rounded-md text-sm font-medium text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-all">مشاريعي</button>
+                        <button class="px-3 py-1.5 rounded-md text-sm font-medium text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-all">المفضلة</button>
+                    </nav>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <input type="text" placeholder="بحث..." class="w-64 h-10 pr-10 pl-4 rounded-full bg-white/80 border border-orange-200 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-200 outline-none transition-all text-sm">
+                        <svg class="w-5 h-5 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <button class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center hover:bg-cyan-200 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    </button>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-lg">
+                        أ
+                    </div>
+                </div>
+            </header>
+
+            <!-- Canvas Area - 60% Orange Background -->
+            <div class="flex-1 canvas-grid overflow-auto p-8 relative">
+                
+                <!-- Floating Action Button - 10% Blue Accent -->
+                <button class="fixed bottom-8 left-8 w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform animate-pulse-orange z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </button>
+
+                <!-- Projects Grid -->
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex items-center justify-between mb-6">
+                        <h1 class="text-2xl font-bold text-gray-800">مشاريعي الأخيرة</h1>
+                        <div class="flex gap-2">
+                            <button class="p-2 rounded-lg bg-white shadow-sm text-orange-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            </button>
+                            <button class="p-2 rounded-lg bg-white/50 text-gray-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        
+                        <!-- Card 1 - 30% Cyan Accent -->
+                        <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift border border-orange-100">
+                            <div class="h-40 bg-gradient-to-br from-cyan-400 to-cyan-600 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/10"></div>
+                                <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-lg backdrop-blur-sm"></div>
+                                <div class="absolute bottom-4 left-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-gray-800 mb-1">تصميم بوستر</h3>
+                                <p class="text-sm text-gray-500 mb-3">تم التعديل قبل ساعتين</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-8 h-8 rounded-full bg-orange-400 border-2 border-white flex items-center justify-center text-white text-xs">أ</div>
+                                        <div class="w-8 h-8 rounded-full bg-cyan-400 border-2 border-white flex items-center justify-center text-white text-xs">م</div>
+                                    </div>
+                                    <button class="text-blue-600 hover:bg-blue-50 p-2 rounded-lg transition-all">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 - Orange Theme -->
+                        <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift border border-orange-100">
+                            <div class="h-40 bg-gradient-to-br from-orange-300 to-orange-500 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white/20 rounded-full blur-2xl"></div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-gray-800 mb-1">غلاف فيسبوك</h3>
+                                <p class="text-sm text-gray-500 mb-3">تم التعديل أمس</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center text-white text-xs">ع</div>
+                                    </div>
+                                    <button class="text-blue-600 hover:bg-blue-50 p-2 rounded-lg transition-all">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 - Mixed -->
+                        <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift border border-orange-100">
+                            <div class="h-40 bg-gradient-to-br from-orange-200 via-cyan-200 to-blue-200 relative overflow-hidden">
+                                <div class="absolute top-4 right-4 w-16 h-16 bg-white/40 rounded-full blur-xl"></div>
+                                <div class="absolute bottom-4 left-4 w-12 h-12 bg-orange-400/30 rounded-lg rotate-12"></div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-gray-800 mb-1">قصة إنستغرام</h3>
+                                <p class="text-sm text-gray-500 mb-3">تم التعديل قبل 3 أيام</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-8 h-8 rounded-full bg-cyan-500 border-2 border-white flex items-center justify-center text-white text-xs">س</div>
+                                        <div class="w-8 h-8 rounded-full bg-orange-400 border-2 border-white flex items-center justify-center text-white text-xs">ن</div>
+                                        <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center text-white text-xs">+2</div>
+                                    </div>
+                                    <button class="text-blue-600 hover:bg-blue-50 p-2 rounded-lg transition-all">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 - Blue Accent -->
+                        <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift border border-orange-100">
+                            <div class="h-40 bg-gradient-to-br from-blue-400 to-blue-600 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                <div class="absolute top-4 left-4 w-8 h-8 bg-white/20 rounded-full"></div>
+                                <div class="absolute bottom-4 right-4 w-16 h-16 bg-orange-400/20 rounded-full blur-xl"></div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-gray-800 mb-1">بطاقة عمل</h3>
+                                <p class="text-sm text-gray-500 mb-3">تم التعديل الأسبوع الماضي</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-8 h-8 rounded-full bg-orange-500 border-2 border-white flex items-center justify-center text-white text-xs">ف</div>
+                                    </div>
+                                    <button class="text-blue-600 hover:bg-blue-50 p-2 rounded-lg transition-all">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add New Card -->
+                        <div class="group border-2 border-dashed border-orange-300 rounded-2xl flex flex-col items-center justify-center h-64 hover:border-cyan-400 hover:bg-cyan-50/30 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-100 to-cyan-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            </div>
+                            <span class="text-gray-600 font-medium">إنشاء تصميم جديد</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Templates Section - 30% Cyan -->
+                    <div class="mt-12">
+                        <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                            <span class="w-2 h-8 bg-cyan-500 rounded-full"></span>
+                            قوالب مقترحة
+                        </h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="aspect-[3/4] rounded-xl bg-gradient-to-br from-cyan-100 to-cyan-200 hover:from-cyan-200 hover:to-cyan-300 transition-all cursor-pointer relative group overflow-hidden">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-cyan-700 font-medium">منشور</span>
+                                </div>
+                            </div>
+                            <div class="aspect-[3/4] rounded-xl bg-gradient-to-br from-orange-100 to-orange-200 hover:from-orange-200 hover:to-orange-300 transition-all cursor-pointer relative group overflow-hidden">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-orange-700 font-medium">غلاف</span>
+                                </div>
+                            </div>
+                            <div class="aspect-[3/4] rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 hover:from-blue-200 hover:to-blue-300 transition-all cursor-pointer relative group overflow-hidden">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-blue-700 font-medium">بطاقة</span>
+                                </div>
+                            </div>
+                            <div class="aspect-[3/4] rounded-xl bg-gradient-to-br from-cyan-50 to-orange-50 hover:from-cyan-100 hover:to-orange-100 transition-all cursor-pointer relative group overflow-hidden border border-orange-200">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-gray-600 font-medium">عرض</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left Panel (Properties) - Hidden by default, slides in -->
+            <aside id="propertiesPanel" class="fixed left-0 top-16 bottom-0 w-80 bg-white/95 backdrop-blur-xl border-r border-orange-200 transform -translate-x-full transition-transform duration-300 z-30 overflow-y-auto">
+                <div class="p-6">
+                    <h2 class="text-lg font-bold text-gray-800 mb-6">الخصائص</h2>
+                    
+                    <!-- Color Palette -->
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-600 mb-3 block">لوحة الألوان</label>
+                        <div class="flex gap-2 mb-3">
+                            <button class="w-10 h-10 rounded-full bg-orange-500 ring-2 ring-offset-2 ring-orange-500"></button>
+                            <button class="w-10 h-10 rounded-full bg-cyan-500 hover:ring-2 hover:ring-offset-2 hover:ring-cyan-500 transition-all"></button>
+                            <button class="w-10 h-10 rounded-full bg-blue-500 hover:ring-2 hover:ring-offset-2 hover:ring-blue-500 transition-all"></button>
+                            <button class="w-10 h-10 rounded-full bg-gray-200 hover:ring-2 hover:ring-offset-2 hover:ring-gray-400 transition-all"></button>
+                        </div>
+                    </div>
+
+                    <!-- Opacity Slider -->
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-600 mb-3 block">الشفافية</label>
+                        <input type="range" class="w-full h-2 bg-orange-200 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3">
+                        <button class="w-full py-3 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 text-white font-medium hover:shadow-lg transition-all">
+                            تطبيق التغييرات
+                        </button>
+                        <button class="w-full py-3 rounded-xl border-2 border-cyan-500 text-cyan-600 font-medium hover:bg-cyan-50 transition-all">
+                            إعادة تعيين
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+        </main>
+    </div>
+
+    <script>
+        // Toggle Properties Panel
+        document.querySelector('.sidebar-item').addEventListener('click', function() {
+            const panel = document.getElementById('propertiesPanel');
+            panel.classList.toggle('-translate-x-full');
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
 
